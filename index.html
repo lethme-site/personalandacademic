@@ -4,82 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lethme Shine | Monterrey</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-main: #f4f1ee; 
-            --card-bg: #ece9e6;
+            --bg: #f4f1ee;
             --accent: #1a1a1a;
-            --text-muted: #666;
             --white: #ffffff;
-            --footer-bg: #eeeeee;
         }
 
         body {
             font-family: 'Inter', sans-serif;
             margin: 0;
-            background-color: var(--bg-main);
+            background-color: var(--bg);
             color: var(--accent);
-            overflow-x: hidden;
-            scroll-behavior: smooth;
+            line-height: 1.5;
         }
 
+        /* Navegación */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 4%;
-            background: rgba(244, 241, 238, 0.85);
-            backdrop-filter: blur(15px);
+            padding: 15px 5%;
+            background: rgba(244, 241, 238, 0.9);
+            backdrop-filter: blur(10px);
             position: fixed;
-            width: 92%;
+            width: 90%;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
         }
 
-        .logo {
-            font-weight: 600;
-            letter-spacing: 3px;
-            font-size: 1.4rem;
-            cursor: pointer;
-        }
+        .logo { font-weight: 600; letter-spacing: 2px; }
 
-        .nav-links a {
-            text-decoration: none;
-            color: var(--accent);
-            margin: 0 12px;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
+        /* Hero Section */
         header {
-            min-height: 100vh;
+            height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            /* RUTA CORREGIDA */
-            background: linear-gradient(rgba(244,241,238,0.3), rgba(244,241,238,0.3)), 
-                        url('heroimagen1.jpg') center/cover no-repeat;
-            color: var(--accent);
+            background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('heroimagen1.jpg') center/cover no-repeat;
+            color: var(--white);
         }
 
         header h1 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(3rem, 10vw, 7rem);
-            font-weight: 400;
-            margin: 20px 0;
+            font-size: clamp(3rem, 12vw, 6rem);
+            margin: 10px 0;
+            color: white;
         }
 
+        /* Marquee */
         .marquee {
             background: var(--accent);
             color: white;
-            padding: 15px 0;
+            padding: 12px 0;
             overflow: hidden;
             white-space: nowrap;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
         }
 
         .marquee-content {
@@ -92,130 +76,122 @@
             to { transform: translateX(-50%); }
         }
 
-        .philosophy-section {
-            background: #fff;
-            padding: 120px 10%;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-        }
-
-        .philosophy-image {
-            width: 100%;
-            height: 80vh;
-            /* RUTA CORREGIDA */
-            background: #e0e0e0 url('filosofiaimagen1.jpg') center/cover;
-            border-radius: 40px 40px 0 40px;
-        }
-
+        /* Productos Grid */
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 35px;
-            padding: 100px 4%;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 50px 5%;
         }
 
         .product-card {
-            background: var(--card-bg);
-            border-radius: 30px;
-            padding: 30px;
-            transition: 0.4s;
+            background: var(--white);
+            border-radius: 20px;
+            padding: 20px;
             text-align: center;
+            transition: 0.3s;
         }
-
-        .product-card:hover { transform: translateY(-10px); background: white; }
 
         .product-image {
             width: 100%;
             height: 250px;
             object-fit: cover;
-            border-radius: 20px;
-            margin-bottom: 15px;
+            border-radius: 15px;
         }
 
         .btn-add {
-            width: 100%;
-            padding: 15px;
             background: black;
             color: white;
             border: none;
-            border-radius: 40px;
+            padding: 12px 25px;
+            border-radius: 30px;
             cursor: pointer;
+            width: 100%;
+            margin-top: 15px;
+            font-size: 0.8rem;
             text-transform: uppercase;
-            font-size: 0.7rem;
+        }
+
+        /* Sección Filosofía */
+        .philosophy {
+            padding: 80px 10%;
+            background: white;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .philosophy div { flex: 1; min-width: 300px; }
+        
+        .philosophy-img {
+            width: 100%;
+            height: 400px;
+            background: url('filosofiaimagen1.jpg') center/cover;
+            border-radius: 30px;
         }
 
         footer {
-            background: var(--footer-bg);
-            padding: 60px 8%;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
+            background: #eee;
+            padding: 40px 5%;
+            text-align: center;
+            font-size: 0.8rem;
         }
 
-        @media (max-width: 900px) {
-            .philosophy-section { grid-template-columns: 1fr; }
-            .philosophy-image { height: 40vh; order: -1; }
+        @media (max-width: 600px) {
+            header h1 { font-size: 4rem; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="nav-links">
-            <a href="#productos">Tienda</a>
-            <a href="#">Contacto</a>
-        </div>
         <div class="logo">LETHME SHINE</div>
-        <div class="nav-links">
-            <a href="#">Carrito (0)</a>
-        </div>
+        <div>Carrito (0)</div>
     </nav>
 
     <header>
-        <p style="letter-spacing: 5px;">EST. 2026 — MONTERREY</p>
-        <h1>LETHME<br>SHINE</h1>
-        <a href="#productos" class="btn-add" style="width: auto; padding: 15px 40px; text-decoration: none;">Explorar Colección</a>
+        <p>MONTERREY, NL</p>
+        <h1>LETHME SHINE</h1>
+        <button class="btn-add" style="width: auto;">Explorar</button>
     </header>
 
     <div class="marquee">
         <div class="marquee-content">
-            FREE SHIPPING EN MTY — DERMATOLÓGICAMENTE PROBADO — CRUELTY FREE — VEGAN SKINCARE — 
+            FREE SHIPPING MTY — DERMATOLÓGICAMENTE PROBADO — VEGAN — FREE SHIPPING MTY — DERMATOLÓGICAMENTE PROBADO — VEGAN — 
         </div>
     </div>
 
-    <section class="philosophy-section">
+    <section class="philosophy">
         <div>
-            <h2 style="font-family: 'Playfair Display'; font-size: 3rem;">Hecho para el clima del norte.</h2>
-            <p>Nacimos bajo el sol de Monterrey para crear fórmulas que soportan la humedad y el calor.</p>
+            <h2 style="font-family: 'Playfair Display'; font-size: 2.5rem;">Hecho para el sol del norte.</h2>
+            <p>Fórmulas diseñadas para resistir el calor y la humedad de Monterrey.</p>
         </div>
-        <div class="philosophy-image"></div>
+        <div class="philosophy-img"></div>
     </section>
 
-    <div class="product-grid" id="productos"></div>
-
-    <section style="height: 60vh; background: url('filosofiaimagen2.jpg') center/cover fixed; display: flex; align-items: center; justify-content: center;">
-        <div style="background: white; padding: 20px 40px;">
-            <h2 style="font-family: 'Playfair Display'; margin: 0;">skin shine always</h2>
+    <div class="product-grid" id="productos">
         </div>
-    </section>
 
     <footer>
-        <div><h4>Lethme Shine</h4><p>© 2026 Monterrey, NL.</p></div>
-        <div><h4>Soporte</h4><p>Privacidad</p><p>Contacto</p></div>
-        <div><h4>Redes</h4><p>Instagram</p><p>TikTok</p></div>
+        <p>© 2026 LETHME SHINE | San Pedro Garza García</p>
     </footer>
 
     <script>
-        const nombres = ["The Cleanser", "Glaze Fluid", "Peptide Lip", "Barrier Restore", "Lip Case MTY", "Toast Tint", "Serum C+", "Mist Refrescante", "Aceite Nocturno", "Exfoliante Suave", "Crema de Ojos", "Sunscreen SPF 50", "Mascarilla Arcilla", "Gloss Transparente", "Bálsamo Calmante", "Tónico Balance", "Serum de Ácido", "Brocha Pro", "Paleta Sombras", "Iluminador Mty", "Rubor en Crema", "Gel de Cejas", "Desmaquillante", "Kit Viaje", "Vela Signature"];
+        const nombres = ["The Cleanser", "Glaze Fluid", "Peptide Lip", "Barrier Restore", "Lip Case MTY", "Toast Tint", "Serum C+", "Mist Refrescante", "Aceite Nocturno", "Exfoliante", "Crema Ojos", "Sunscreen", "Mascarilla", "Gloss", "Bálsamo", "Tónico", "Serum Ácido", "Brocha", "Paleta", "Iluminador", "Rubor", "Gel Cejas", "Desmaquillante", "Kit Viaje", "Vela"];
         
         const grid = document.getElementById('productos');
         
-        // RUTA CORREGIDA EN JAVASCRIPT
         for(let i = 1; i <= 25; i++) {
             grid.innerHTML += `
                 <div class="product-card">
                     <img src="producto${i}.jpg" class="product-image" alt="Producto">
-                    <h3>${nombres[i-1] || 'Producto ' + i}</h3>
-                    <p>$${Math.floor(Math.random() * 500 + 300
+                    <h3 style="font-size: 1rem; margin: 15px 0 5px;">${nombres[i-1]}</h3>
+                    <p style="color: #666; font-size: 0.9rem;">$${Math.floor(Math.random() * 400 + 300)}.00 MXN</p>
+                    <button class="btn-add">Añadir</button>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>
